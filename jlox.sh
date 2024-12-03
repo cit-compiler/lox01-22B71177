@@ -1,3 +1,3 @@
 #!/bin/sh
 
-java com/craftinginterpreters/lox.Lox $1
+java com.craftinginterpreters.lox.Lox $1
