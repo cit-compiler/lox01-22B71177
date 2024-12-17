@@ -36,6 +36,8 @@ public class GenerateAst {
         writer.println("import java.util.List;");
         writer.println();
         writer.println("abstract class " + baseName + " {");
+        //5.3.3追加した。
+        //5.3.3追加した。
         defineVisitor(writer, baseName, types);
         // The AST classes.
         for (String type : types) {
