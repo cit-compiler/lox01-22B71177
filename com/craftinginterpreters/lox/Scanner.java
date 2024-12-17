@@ -135,6 +135,7 @@ class Scanner {
             case '"':
                 string();
                 break;
+
             default:
                 if (isDigit(c)) {
                     number();
@@ -178,6 +179,8 @@ class Scanner {
         while (peek() != '"' && !isAtEnd()) {
             if (peek() == '\n')
                 line++;
+            if (peek() == '\"')
+                source.replace('\"', '"');
             advance();
         }
 
@@ -185,7 +188,6 @@ class Scanner {
             Lox.error(line, "Unterminated string.");
             return;
         }
-
         // The closing ".
         advance();
 
