@@ -1,3 +1,4 @@
 #!/bin/sh
 
+#  run .lox file "./jlox file.lox"
 java com.craftinginterpreters.lox.Lox $1
