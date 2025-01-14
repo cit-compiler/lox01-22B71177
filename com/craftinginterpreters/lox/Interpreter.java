@@ -84,7 +84,7 @@ class Interpreter implements Expr.Visitor<Object>, Stmt.Visitor<Void> {
         evaluate(stmt.expression);
         return null;
     }
-
+    //9.2まで終了
     @Override
     public Void visitIfStmt(Stmt.If stmt) {
         if (isTruthy(evaluate(stmt.condition))) {
