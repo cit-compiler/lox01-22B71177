@@ -10,21 +10,22 @@ class Interpreter implements Expr.Visitor<Object>, Stmt.Visitor<Void> {
         return expr.value;
     }
 
-    @Override
-    public Object visitLogicalExpr(Expr.Logical expr) {
-        Object left = evaluate(expr.left);
-
-        if (expr.operator.type == TokenType.OR) {
-            if (isTruthy(left))
-                return left;
-        } else {
-            if (!isTruthy(left))
-                return left;
-        }
-
-        return evaluate(expr.right);
-    }
-
+    /*
+     * @Override
+     * public Object visitLogicalExpr(Expr.Logical expr) {
+     * Object left = evaluate(expr.left);
+     * 
+     * if (expr.operator.type == TokenType.OR) {
+     * if (isTruthy(left))
+     * return left;
+     * } else {
+     * if (!isTruthy(left))
+     * return left;
+     * }
+     * 
+     * return evaluate(expr.right);
+     * }
+     */
     @Override
     public Object visitGroupingExpr(Expr.Grouping expr) {
         return evaluate(expr.expression);
@@ -112,13 +113,14 @@ class Interpreter implements Expr.Visitor<Object>, Stmt.Visitor<Void> {
         return null;
     }
 
-    @Override
-    public Object visitAssignExpr(Expr.Assign expr) {
-        Object value = evaluate(expr.value);
-        environment.assign(expr.name, value);
-        return value;
-    }
-
+    /*
+     * @Override
+     * public Object visitAssignExpr(Expr.Assign expr) {
+     * Object value = evaluate(expr.value);
+     * environment.assign(expr.name, value);
+     * return value;
+     * }
+     */
     @Override
     public Object visitBinaryExpr(Expr.Binary expr) {
         Object left = evaluate(expr.left);
@@ -186,10 +188,12 @@ class Interpreter implements Expr.Visitor<Object>, Stmt.Visitor<Void> {
         return null;
     }
 
-    @Override
-    public Object visitVariableExpr(Expr.Variable expr) {
-        return environment.get(expr.name);
-    }
+    /*
+     * @Override
+     * public Object visitVariableExpr(Expr.Variable expr) {
+     * return environment.get(expr.name);
+     * }
+     */
 
     private void checkNumberOperand(Token operator, Object operand) {
         if (operand instanceof Double)

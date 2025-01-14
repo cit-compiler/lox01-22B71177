@@ -1,11 +1,8 @@
 package com.craftinginterpreters.lox;
 
-class AstPrinter implements Expr.Visitor<String>, Stmt.Visitor<String>{
+class AstPrinter implements Expr.Visitor<String>{
     String print(Expr expr) {
         return expr.accept(this);
-    }
-    String print(Stmt stmt) {
-        return stmt.accept(this);
     }
     @Override
     public String visitBinaryExpr(Expr.Binary expr) {
